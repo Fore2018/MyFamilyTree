@@ -1,0 +1,34 @@
+{
+    "include": {
+        "dirs": [
+            "./docs/",
+            "./www-data/www/patches/"
+        ],
+        "suffixes": [
+            ".css",
+            ".htm",
+            ".html",
+            ".js",
+            ".json",
+            ".md",
+            ".py",
+            ".sql"
+        ]
+    },
+    "exclude": {
+        "dirs": [
+            "./www-data/www/patches/js/"
+        ],
+        "files": []
+    },
+    "rules": {
+        ".css": "format_css",
+        ".htm": "format_html",
+        ".html": "format_html",
+        ".js": "format_js",
+        ".json": "format_json",
+        ".md": "format_md",
+        ".py": "format_python",
+        ".sql": "format_sql"
+    }
+}

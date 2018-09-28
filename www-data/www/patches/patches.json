@@ -1,0 +1,13 @@
+{
+    "patches": [{
+        "description": "favicon",
+        "from": "./favicon.ico",
+        "to": "../www/favicon.ico",
+        "backup": "./backup/favicon.ico"
+    }, {
+        "description": "logo",
+        "from": "./template/default/img/logo.png",
+        "to": "../www/template/default/img/logo.png",
+        "backup": "./backup/template/default/img/logo.png"
+    }]
+}
