@@ -1,0 +1,67 @@
+<div class="fly-panel detail-box">
+	<h1>{$readdata['title']}</h1>
+	<div class="fly-detail-info">
+		<!-- <span class="layui-badge">审核中</span> -->
+		<a href="{ReWriteURL('list','sortid={$bkdata['id']}&page=1')}" class="layui-badge layui-bg-green fly-detail-column">{$bkdata['title']}</a>
+		<span class="layui-badge" style="background-color:#999">{EqualReturn($readdata['label'],'','无标签')}</span>
+		<!-- <span class="layui-badge" style="background-color: #5FB878;">已结</span> -->
+		{$_G['TEMP']['JHZD']}
+
+		<div class="fly-admin-box" data-id="123"></div>
+
+		<span class="fly-list-nums"> 
+			<i class="iconfont" title="回复数">&#xe60c;</i> {Cnum($readdata['fs']-1)}
+			<i class="iconfont" title="浏览量">&#xe60b;</i> {$readdata['looknum']}
+		</span>
+	</div>
+	<div class="detail-about">
+		<a class="fly-avatar" href="{ReWriteURL('user','id={$readuserdata['id']}&page=1')}">
+			<img src="userhead/{$readuserdata['id']}.png" onerror="this.src='userhead/0.png'" alt="{$readuserdata['username']}">
+		</a>
+		<div class="fly-detail-user">
+			<a href="{ReWriteURL('user','id={$readdata['uid']}&page=1')}" class="fly-link">
+				<cite>{$readuserdata['username']}</cite>
+				<!--<i class="iconfont icon-renzheng" title="已认证"></i>-->
+				<i class="layui-badge fly-badge-vip">{$readdata['usergroupname']}</i>
+			</a>
+			<span>{date('Y-m-d H:i:s',$readdata['posttime'])}</span>
+		</div>
+		<div class="detail-hits" id="LAY_jieAdmin" data-id="123">
+			<span style="padding-right: 10px; color: #FF7200">用户等级：{Cnum($readuserdata['jifen']/100)}级</span> {$_G['TEMP']['READADMINLINK']}
+		</div>
+	</div>
+	<div class="detail-body photos readcontent">{$readdata['content']}</div>
+	<a name="postreplyposition"></a>
+	<div style="border-top:solid 1px #F2F2F2;border-bottom:solid 1px #F2F2F2;padding-top:10px;padding-bottom:10px;font-size:12px;">楼主签名：{$readuserdata['sign']}</div>
+	<a name="replylist"></a>
+</div>
+
+<div class="fly-panel detail-box" id="flyReply">
+	<fieldset class="layui-elem-field layui-field-title pk-text-center">
+		<legend>回帖</legend>
+	</fieldset>
+
+	<div class="layui-form layui-form-pane">
+		<form name="form_post" action="index.php?c=post&type=reply&return=json" method="post">
+			<input type="hidden" name="rid" value="{$readdata['id']}" />
+			<div class="layui-form-item layui-form-text">
+				<div class="layui-input-block">
+					<a name="postreplyposition"></a>
+					<textarea id="container" name="content" placeholder="请输入内容" class="layui-textarea fly-editor" style="height:150px"></textarea>
+				</div>
+			</div>
+			<div style="max-width:240px">
+				{loadVerifycode('postreply','')}
+			</div>
+			<div class="layui-form-item">
+				<input type="hidden" name="jid" value="123">
+				<button id="postreplysubmitbtn" class="layui-btn">提交回复</button>
+			</div>
+		</form>
+	</div>
+	
+	<fieldset class="layui-elem-field layui-field-title pk-text-center">
+		<legend>回复列表</legend>
+	</fieldset>
+
+	<ul class="jieda" id="read-list">

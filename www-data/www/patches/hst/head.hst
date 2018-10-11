@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="template/puyuetian_fly/res/layui/css/layui.css">
+<link rel="stylesheet" href="template/puyuetian_fly/res/css/global.css">
+<style>
+	#friendsdiv {
+		background-color: #fff;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	
+	form[name="form_user"] {
+		background-color: #fff;
+	}
+	
+	#puyuetian_fly-nav li a {
+		padding-left: 25px;
+	}
+</style>
+<div class="fly-header layui-bg-black" style="background-color: #57A0FF !important;">
+	<div class="layui-container">
+		<a class="fly-logo" href="index.php">
+			<img src="template/puyuetian_fly/res/images/logo.png" alt="{$_G['SET']['LOGOTEXT']}" style="max-height:100%;">
+		</a>
+		<ul id="puyuetian_fly-nav" class="layui-nav fly-nav layui-hide-xs layui-hide">{$_G['SET']['NAVHTMLCODE']}</ul>
+
+		<ul class="layui-nav fly-nav-user">
+			<!-- 未登入的状态 -->
+			<li class="layui-nav-item puyuetian_fly-guestbox layui-hide">
+				<a class="iconfont icon-touxiang layui-hide-xs" href="{ReWriteURL('login')}"></a>
+			</li>
+			<li class="layui-nav-item puyuetian_fly-guestbox layui-hide">
+				<a href="{ReWriteURL('login')}">登入</a>
+			</li>
+			<li class="layui-nav-item puyuetian_fly-guestbox layui-hide">
+				<a href="{ReWriteURL('reg')}">注册</a>
+			</li>
+
+			<!-- 登入后的状态 -->
+			<li class="layui-nav-item puyuetian_fly-userbox layui-hide">
+				<a class="fly-nav-avatar" href="javascript:;">
+					<cite class="layui-hide-xs">{$_G['USER']['USERNAME']}</cite>
+					<!--<i class="iconfont icon-renzheng layui-hide-xs" title="已认证"></i>-->
+					<i class="layui-badge fly-badge-vip layui-hide-xs">{$_G['TEMP']['GROUPNAME']}</i>
+					<img src="userhead/{$_G['USER']['ID']}.png" onerror="this.src='userhead/0.png'" alt="">
+				</a>
+				<dl class="layui-nav-child">
+					<dd class="layui-hide-sm">
+						<a href="index.php?c=edit&type=read&sortid={$sortid}"><i class="layui-icon">&#xe6b2;</i>发布文章</a>
+					</dd>
+					<dd>
+						<a href="index.php?c=user"><i class="layui-icon">&#xe770;</i>个人资料</a>
+					</dd>
+					<dd>
+						<a href="index.php?c=friends"><i class="iconfont icon-tongzhi" style="top:4px"></i>我的消息</a>
+					</dd>
+					<hr style="margin:5px 0">
+					<dd>
+						<a href="javascript:" onclick="layer.confirm('确认退出吗？',{icon:3,title:'提示'},function(index){layer.close(index);layer.msg('退出成功',{icon:1});location.href='index.php?c=login&type=out'})" style="text-align:center">退出</a>
+					</dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="layui-hide-xs">
+	<div class="fly-panel fly-column">
+		<div class="layui-container">
+			<ul class="layui-clear">
+				<li class="layui-hide-xs">
+					<a href="index.php">首页</a>
+					<span style="display:inline-block;color:#e2e2e2;height:10px">&raquo;</span>
+				</li>
+				{$_G['TEMP']['GPSHTML']}
+			</ul>
+
+			<div class="fly-column-right layui-hide-xs">
+				<span class="fly-search"><i class="layui-icon"></i></span>
+				<a href="index.php?c=edit&type=read&sortid={$sortid}" class="layui-btn">发表新帖</a>
+			</div>
+			<div class="layui-hide-sm layui-show-xs-block" style="margin-top:-10px;padding-bottom:10px;text-align:center">
+				<a href="index.php?c=edit&type=read&sortid={$sortid}" class="layui-btn">发表新帖</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	(function() {
+		$_USER['ID'] == "0" ? $('.puyuetian_fly-guestbox').removeClass('layui-hide') : $('.puyuetian_fly-userbox').removeClass('layui-hide');
+		var _a = $('#puyuetian_fly-nav li');
+		if(_a.length > 7) {
+			var html = '',
+				html2 = '<li class="layui-nav-item"><a href="javascript:;">更多</a><dl class="layui-nav-child">';
+			for(var i = 0; i < _a.length; i++) {
+				if(i < 6) {
+					html += '<li class="layui-nav-item">' + $(_a[i]).html() + '</li>';
+				} else {
+					html2 += '<dd>' + $(_a[i]).html() + '</dd>';
+				}
+			}
+			html += html2 + '</dl></li>';
+			$('#puyuetian_fly-nav').html(html);
+		} else {
+			_a.addClass('layui-nav-item');
+		}
+		$('#puyuetian_fly-nav').removeClass('layui-hide');
+		if($_USER['ID'] == "1") {
+			$('.puyuetian_fly-userbox dl.layui-nav-child>hr').before('<a target="_blank" href="index.php?c=app&a=superadmin:index"><i class="layui-icon">&#xe620;</i>后台管理</a>');
+		}
+	})();
+</script>

@@ -1,16 +1,47 @@
 {
-    "patches": [
+    "files": [
         {
             "description": "favicon",
             "from": "./img/favicon.ico",
-            "to": "../www/favicon.ico",
+            "to": "../favicon.ico",
             "backup": "./backup/favicon.ico"
         },
         {
             "description": "logo",
             "from": "./img/logo.png",
-            "to": "../www/template/default/img/logo.png",
+            "to": "../template/default/img/logo.png",
             "backup": "./backup/template/default/img/logo.png"
+        },
+        {
+            "description": "main.hst",
+            "from": "./hst/main.hst",
+            "to": "../template/default/main.hst",
+            "backup": "./backup/template/default/main.hst"
+        },
+        {
+            "description": "head.hst",
+            "from": "./hst/head.hst",
+            "to": "../template/puyuetian_fly/head.hst",
+            "backup": "./backup/template/puyuetian_fly/head.hst"
+        },
+        {
+            "description": "load.php",
+            "from": "./php/load.php",
+            "to": "../app/systememail/load.php",
+            "backup": "./backup/app/systememail/load.php"
+        },
+        {
+            "description": "read-1.hst",
+            "from": "./hst/read-1.hst",
+            "to": "../template/puyuetian_fly/read-1.hst",
+            "backup": "./backup/template/puyuetian_fly/read-1.hst"
+        }
+    ],
+    "dirs": [
+        {
+            "description": "quelaag_furysword",
+            "from": "./quelaag_furysword",
+            "to": "../app/quelaag_furysword"
         }
     ]
 }
