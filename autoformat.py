@@ -26,19 +26,24 @@ def format_template(func):
 
 
 class AutoFormat:
+    def __init__(self):
+        with open('autoformat.json', 'r', encoding='utf-8') as fp:
+            self.content = json.load(fp)
+        self.enable_backup = self.content['enable_backup']
+        self.rules = self.content['rules']
+
     def filter_filepaths(self):
         # 筛选出符合 include 属性，并且不再 exclude 属性描述中的文件
         # include 和 exclude 属性均不支持通配符
-        with open('autoformat.json', 'r', encoding='utf-8') as fp:
-            content = json.load(fp)
-        include_dirs = (os.path.abspath(x) for x in content['include']['dirs']
+        include_dirs = (os.path.abspath(x)
+                        for x in self.content['include']['dirs']
                         if os.path.exists(x))
-        include_suffixes = content['include']['suffixes']
+        include_suffixes = self.content['include']['suffixes']
         exclude_dirs = {
             os.path.abspath(x)
-            for x in content['exclude']['dirs'] if os.path.exists(x)
+            for x in self.content['exclude']['dirs'] if os.path.exists(x)
         }
-        exclude_files = content['exclude']['files']
+        exclude_files = self.content['exclude']['files']
         all_filepaths = (os.path.join(y[0], z) for x in include_dirs
                          for y in os.walk(x) for z in y[2])
         excluded_filepaths = (x for x in all_filepaths if not any(
@@ -80,15 +85,14 @@ class AutoFormat:
 
     def format_file(self, filepath):
         suffix = os.path.splitext(filepath)[-1]
-        with open('autoformat.json', 'r', encoding='utf-8') as fp:
-            rules = json.load(fp)['rules']
-        self.backup(filepath, filepath + '.bak')
-        getattr(self, rules[suffix])(filepath)
+        if self.enable_backup:
+            self.backup(filepath, filepath + '.bak')
+        getattr(self, self.rules[suffix])(filepath)
 
     def do_format(self):
         for fp in self.filter_filepaths():
             print(fp)
-            #self.format_file(fp)
+            self.format_file(fp)
 
 
 if __name__ == '__main__':

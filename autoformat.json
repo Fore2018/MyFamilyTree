@@ -21,6 +21,7 @@
         ],
         "files": []
     },
+    "enable_backup": false,
     "rules": {
         ".css": "format_css",
         ".htm": "format_html",
