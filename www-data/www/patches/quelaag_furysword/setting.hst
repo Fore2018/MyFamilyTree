@@ -6,11 +6,21 @@
     <div class="pk-row pk-padding-bottom-15">
         <label class="pk-w-sm-3 pk-padding-top-5 pk-text-bold pk-text-right pk-text-nowrap">应用开关</label>
         <div class="pk-w-sm-8">
-            <select class="pk-textbox pk-radius-4" data-value="{$_G['SET']['APP_克拉格_克拉格的魔剑_LOAD']}" name="app_克拉格_克拉格的魔剑_load">
+            <select class="pk-textbox pk-radius-4" data-value="{$_G['SET']['APP_QUELAAG_FURYSWORD_LOAD']}" name="app_quelaag_furysword_load">
                 <option value="0">关闭</option>
-                <option value="1">开启</option>
+                <option value="embed">开启</option>
             </select>
         </div>
+    </div>
+    <div class="pk-row pk-padding-bottom-15">
+        <label class="pk-w-sm-3 pk-padding-top-5 pk-text-bold pk-text-right pk-text-nowrap">修改网站名</label>
+        <div class="pk-w-sm-8">
+            <input class="pk-textbox" type="text" name="app_quelaag_furysword_webname" placeholder="请输入设置值" value="{$_G['SET']['APP_QUELAAG_FURYSWORD_WEBNAME']}"> </div>
+    </div>
+    <div class="pk-row pk-padding-bottom-15">
+        <label class="pk-w-sm-3 pk-padding-top-5 pk-text-bold pk-text-right pk-text-nowrap">修改网站标题</label>
+        <div class="pk-w-sm-8">
+            <input class="pk-textbox" type="text" name="app_quelaag_furysword_webtitle" placeholder="请输入设置值" value="{$_G['SET']['APP_QUELAAG_FURYSWORD_WEBTITLE']}"> </div>
     </div>
     <div class="pk-row pk-padding-bottom-15">
         <label class="pk-w-sm-3 pk-padding-top-5 pk-text-bold pk-text-right"></label>

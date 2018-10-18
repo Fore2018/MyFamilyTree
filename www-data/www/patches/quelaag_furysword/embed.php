@@ -11,7 +11,8 @@ $_G['SET']['EMBED_HEADMARKS'] .= <<<EOF
 EOF;
 
 // 修改网站名
-$_G['SET']['WEBNAME'] = $_G['SET']['app_克拉格_克拉格的魔剑_webname'];
+$_G['SET']['WEBNAME'] = $_G['SET']['APP_QUELAAG_FURYSWORD_WEBNAME'];
+$_G['SET']['WEBTITLE'] = $_G['SET']['APP_QUELAAG_FURYSWORD_WEBTITLE'];
 
 // 添加切换版式选项
 $_G['SET']['FOOTERHTMLCODE'] .= <<<EOF

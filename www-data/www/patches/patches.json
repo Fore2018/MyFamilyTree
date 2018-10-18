@@ -1,22 +1,10 @@
 {
     "files": [
         {
-            "description": "favicon",
-            "from": "./img/favicon.ico",
-            "to": "../favicon.ico",
-            "backup": "./backup/favicon.ico"
-        },
-        {
-            "description": "logo",
-            "from": "./img/logo.png",
-            "to": "../template/default/img/logo.png",
-            "backup": "./backup/template/default/img/logo.png"
-        },
-        {
-            "description": "main.hst",
-            "from": "./hst/main.hst",
-            "to": "../template/default/main.hst",
-            "backup": "./backup/template/default/main.hst"
+            "description": "center.hst",
+            "from": "./hst/center.hst",
+            "to": "../template/default/center.hst",
+            "backup": "./backup/template/default/center.hst"
         },
         {
             "description": "head.hst",
@@ -25,16 +13,46 @@
             "backup": "./backup/template/puyuetian_fly/head.hst"
         },
         {
-            "description": "load.php",
-            "from": "./php/load.php",
-            "to": "../app/systememail/load.php",
-            "backup": "./backup/app/systememail/load.php"
+            "description": "main.hst",
+            "from": "./hst/main.hst",
+            "to": "../template/default/main.hst",
+            "backup": "./backup/template/default/main.hst"
         },
         {
             "description": "read-1.hst",
             "from": "./hst/read-1.hst",
             "to": "../template/puyuetian_fly/read-1.hst",
             "backup": "./backup/template/puyuetian_fly/read-1.hst"
+        },
+        {
+            "description": "favicon",
+            "from": "./img/favicon.ico",
+            "to": "../favicon.ico",
+            "backup": "./backup/favicon.ico"
+        },
+        {
+            "description": "center.php",
+            "from": "./php/center.php",
+            "to": "../phpscript/center.php",
+            "backup": "./backup/phpscript/center.php"
+        },
+        {
+            "description": "index.php",
+            "from": "./php/index.php",
+            "to": "../index.php",
+            "backup": "./backup/index.php"
+        },
+        {
+            "description": "load.php",
+            "from": "./php/load.php",
+            "to": "../app/systememail/load.php",
+            "backup": "./backup/app/systememail/load.php"
+        },
+        {
+            "description": "logo",
+            "from": "./img/logo.png",
+            "to": "../template/default/img/logo.png",
+            "backup": "./backup/template/default/img/logo.png"
         }
     ],
     "dirs": [

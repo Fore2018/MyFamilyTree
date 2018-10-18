@@ -1,5 +1,6 @@
 docs/standard/
 patches.lnk
+www.lnk
 www-data/data/
 www-data/www/*
 !www-data/www/patches/
