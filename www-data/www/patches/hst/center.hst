@@ -100,15 +100,15 @@
                         </li>
                         <li id="center_name_clan_li">
                             <p>家族</p>
-                            <p data-name="clan">{$_G['TEMPUSER']['CLAN']}</p>
+                            <p data-name="clanname">{$_G['TEMPUSER']['CLANNAME']}</p>
                         </li>
                         <li id="center_name_mate_li">
                             <p>配偶</p>
-                            <p data-name="mate">{$_G['TEMPUSER']['MATE']}</p>
+                            <p data-name="matename">{$_G['TEMPUSER']['MATENAME']}</p>
                         </li>
                         <li id="center_name_father_li">
                             <p>父亲</p>
-                            <p data-name="father">{$_G['TEMPUSER']['FATHER']}</p>
+                            <p data-name="fathername">{$_G['TEMPUSER']['FATHERNAME']}</p>
                         </li>
                         <li class="_title">
                             <span>通讯信息</span>

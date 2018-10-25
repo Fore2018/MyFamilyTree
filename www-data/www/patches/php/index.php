@@ -1,6 +1,6 @@
 <?php
 //调试模式TRUE，运营模式FALSE
-define('DEBUG', TRUE);
+define('DEBUG', FALSE);
 
 //程序版本，升级必备
 define('HADSKY_VERSION', '6.3.1');

@@ -14,11 +14,14 @@ switch ($_G['GET']['TYPE']) {
 	case 'dynamic' :
 		//读取动态及资料
         $_G['TEMPUSER'] = $_G['TABLE']['USER'] -> getData($_G['GET']['UID']);
-        $_G['TEMPUSER']['CLANNAME'] = $_G['TABLE']['CLAN'] -> getData($_G['TEMPUSER']['CID']);
+        
 		if (!$_G['TEMPUSER']) {
 			ExitJson('不存在的用户');
 		}
-		standardArray($_G['TEMPUSER']);
+        standardArray($_G['TEMPUSER']);
+        $_G['TEMPUSER']['CLANNAME'] = $_G['TABLE']['CLAN'] -> getData($_G['TEMPUSER']['CID']);
+        $_G['TEMPUSER']['MATENAME'] = $_G['TABLE']['USER'] -> getData($_G['TEMPUSER']['MID']);
+        $_G['TEMPUSER']['FATHERNAME'] = $_G['TABLE']['USER'] -> getData($_G['TEMPUSER']['FID']);
 		$query = mysql_query("select `id`,`posttime`,`title` as `t_r`,'read' as `table` from `{$_G['MYSQL']['PREFIX']}read` where `uid`={$_G['TEMPUSER']['ID']} and `del`=0 union all select `id`,`posttime`,`rid` as `t_r`,'reply' as `table` from `{$_G['MYSQL']['PREFIX']}reply` where `uid`={$_G['TEMPUSER']['ID']} and `del`=0 order by `posttime` desc limit {$spos},{$num}");
 		$array = array();
 		$index = 0;

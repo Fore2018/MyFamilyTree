@@ -1,4 +1,7 @@
 {
+    "args": {
+        "domain": "linkfire.org"
+    },
     "files": [
         {
             "description": "center.hst",
@@ -53,6 +56,18 @@
             "from": "./img/logo.png",
             "to": "../template/default/img/logo.png",
             "backup": "./backup/template/default/img/logo.png"
+        },
+        {
+            "description": ".htaccess",
+            "from": "./others/.htaccess",
+            "to": "../.htaccess",
+            "backup": "./backup/.htaccess",
+            "append": {
+                "content": "\nRewriteCond %{{HTTP_HOST}} ^{0}\nRewriteRule ^(.*)$ https://www.{0}/$1 [L,R=301]\nRewriteCond %{{SERVER_PORT}} !^443$\nRewriteRule ^.*$ https://%{{SERVER_NAME}}%{{REQUEST_URI}} [L,R]\n",
+                "args": [
+                    "domain"
+                ]
+            }
         }
     ],
     "dirs": [

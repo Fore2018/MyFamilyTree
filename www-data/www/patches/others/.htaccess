@@ -26,9 +26,3 @@ RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^(.*)\.hst$ - [F]
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^logs/(.*)$ - [F]
-
-RewriteCond %{HTTP_HOST} ^linkfire.org
-RewriteRule ^(.*)$ https://www.linkfire.org/$1 [L,R=301]
-
-RewriteCond %{SERVER_PORT} !^443$
-RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
